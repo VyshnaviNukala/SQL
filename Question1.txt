@@ -1,0 +1,234 @@
+1.SQL> create database Employee
+-----------------------------------------------------
+ 
+2.SQL> create table EmployeeDetails
+  2  (
+  3  emp_id number(5),
+  4  emp_name varchar2(20),
+  5  job_name varchar2(20),
+  6  manager_id number(5),
+  7  hire_date date,
+  8  salary number(4),
+  9  dep_id number(4)
+ 10  );
+
+Table created.
+------------------------------------------------------------------
+3.SQL> insert into EmployeeDetails values (
+  2  68319,
+  3  'Mr.Singh',
+  4  'PRESIDENT',
+  5  68319,
+  6  '18-Nov-1991',
+  7  6000,
+  8  1001
+  9  );
+
+
+
+SQL> insert into EmployeeDetails values (
+  2  89536,
+  3  'John Doe',
+  4  'Manager',
+  5  89536,
+  6  '01-Jan-1995',
+  7  7000,
+  8  1002
+  9  );
+
+
+
+
+SQL> insert into EmployeeDetails values (
+  2  34562,
+  3  'Jane Smith',
+  4  'Salesperson',
+  5  34562,
+  6  '12-oct-1998',
+  7   5000,
+  8   1003
+  9  );
+
+SQL> insert into EmployeeDetails values (76474,'Sarah Lee','Analyst', 76474,'13-dec-2005',3000, 1005 );
+
+SQL> insert into EmployeeDetails values (
+    87868,'Chris Jackson', 'Analyst', 87868, '09-oct-2003', 6500, 1008);
+
+
+SQL> insert into EmployeeDetails values (
+   67677,'Lisa Green', 'Developer', 67677, '07-feb-2008', 7500, 1007);
+
+
+
+SQL> insert into EmployeeDetails values (
+    65774,'Melissa White', 'Salesperson', 65774, '08-jun-2005',5000, 1009);
+
+
+SQL> insert into EmployeeDetails values (
+   98654,'Mike Johnson', 'Developer', 98654, '16-may-2001', 7000, 1004);
+
+SQL> insert into EmployeeDetails values (
+   34572,'Jane Smith', 'Salesperson', 34572, '12-oct-1998', 5000, 1003);
+
+
+SQL> insert into EmployeeDetails values (
+   43343,'David Brown', 'Salesperson', 43343, '05-apr-2002', 5500, 1006);
+
+
+output:
+---------
+
+SQL> select * from  EmployeeDetails;
+
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATE
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+     68319 Mr.Singh             PRESIDENT                 68319 18-NOV-91
+      6000       1001
+
+     68319 Mr.Singh             PRESIDENT                 68319 18-NOV-91
+      6000       1001
+
+     89536 John Doe             Manager                   89536 01-JAN-95
+      7000       1002
+
+
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATE
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+     34562 Jane Smith           Salesperson               34562 12-OCT-98
+      5000       1003
+
+     76474 Sarah Lee            Analyst                   76474 13-DEC-05
+      3000       1005
+
+     87868 Chris Jackson        Analyst                   87868 09-OCT-03
+      6500       1008
+
+
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATE
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+     67677 Lisa Green           Developer                 67677 07-FEB-08
+      7500       1007
+
+     65774 Melissa White        Salesperson               65774 08-JUN-05
+      5000       1009
+
+     98654 Mike Johnson         Developer                 98654 16-MAY-01
+      7000       1004
+
+
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATE
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+     34572 Jane Smith           Salesperson               34572 12-OCT-98
+      5000       1003
+
+     43343 David Brown          Salesperson               43343 05-APR-02
+      5500       1006
+
+
+-------------------------------------------------------------------
+
+
+4.SQL> SELECT Salary FROM EmployeeDetails;
+
+output:
+---------
+
+    SALARY
+----------
+      6000
+      6000
+      7000
+      5000
+      3000
+      6500
+      7500
+      5000
+      7000
+      5000
+      5500
+
+-----------------------------------------------------------------------
+
+5.SQL> SELECT DISTINCT Job_name FROM EmployeeDetails;
+
+output:
+---------
+
+JOB_NAME
+--------------------
+Manager
+Analyst
+Salesperson
+PRESIDENT
+Developer
+----------------------------------------------------------------------------
+6.SQL> update EmployeeDetails set emp_name='Raj' where emp_name='John Doe';
+
+
+SQL> update EmployeeDetails set salary=7000 where emp_name='Raj';
+
+ output:
+--------------
+SQL> select * from EmployeeDetails;
+
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATE
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+     68319 Mr.Singh             PRESIDENT                 68319 18-NOV-91
+      6000       1001
+
+     68319 Mr.Singh             PRESIDENT                 68319 18-NOV-91
+      6000       1001
+
+     89536 Raj                  Manager                   89536 01-JAN-95
+      7000       1002
+
+
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATE
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+     34562 Jane Smith           Salesperson               34562 12-OCT-98
+      5000       1003
+
+     76474 Sarah Lee            Analyst                   76474 13-DEC-05
+      3000       1005
+
+     87868 Chris Jackson        Analyst                   87868 09-OCT-03
+      6500       1008
+
+
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATE
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+     67677 Lisa Green           Developer                 67677 07-FEB-08
+      7500       1007
+
+     65774 Melissa White        Salesperson               65774 08-JUN-05
+      5000       1009
+
+     98654 Mike Johnson         Developer                 98654 16-MAY-01
+      7000       1004
+
+
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATE
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+     34572 Jane Smith           Salesperson               34572 12-OCT-98
+      5000       1003
+
+     43343 David Brown          Salesperson               43343 05-APR-02
+      5500       1006
+
+

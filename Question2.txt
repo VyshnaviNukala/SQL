@@ -1,0 +1,147 @@
+1.SQL>create database Football
+----------------------------------------------------------------------
+2.SQL> create table Football_venue(
+     venue_id number(5),   venue_name varchar2(20),  city_id number(5), capacity number(5));
+
+Table created.
+------------------------------------------------------------------------------------
+
+3.SQL>  insert into Football_venue values (    21012,   'Old Traffford',    11002,    75000    );
+
+1 row created.
+
+SQL> insert into Football_venue values    (    21003,   'Sanfrasisco',    11004,   60007);
+
+1 row created.
+
+SQL> insert into Football_venue values    (   21014,   'Amsterdam',   11008,    38048);
+
+1 row created.
+
+SQL> insert into Football_venue values   (   21011,    'India',    11003,    42115   );
+
+1 row created.
+
+SQL> insert into Football_venue values    (   21010,    'Norway',    1007,    56700);
+
+1 row created.
+
+SQL>  insert into Football_venue values    (    21019,   'Russia',   12003,    19800);
+
+1 row created.
+
+SQL>  insert into Football_venue values   (   21017,    'Nigeria',    11001,   32009);
+
+1 row created.
+
+SQL> insert into Football_venue values    (    21018,    'South Korea',    11002,    12345);
+
+1 row created.
+
+SQL> insert into Football_venue values    (    21010,    'Norway',   12007,    56700);
+
+1 row created.
+
+SQL>  insert into Football_venue values    (    21019,    'Russia',    12003,   19800);
+
+1 row created.
+
+SQL>  select * from Football_venue;
+
+  VENUE_ID VENUE_NAME              CITY_ID   CAPACITY
+---------- -------------------- ---------- ----------
+     20002 Old Traffford             11002      75000
+     20003 Sanfrasisco               11004      60007
+     20004 Amsterdam                 11008      38048
+     20001 India                     11003      42115
+     20010 Norway                    12007      56700
+     20009 Russia                    12003      19800
+     20007 Nigeria                   11001      32009
+     20008 South Korea               11002      12345
+     20010 Norway                    12007      56700
+     20009 Russia                    12003      19800
+
+10 rows selected.
+--------------------------------------------------------------------
+
+
+4.SQL> select count(*) from Football_venue;
+
+  COUNT(*)
+----------
+        10
+---------------------------------------------------------------------
+
+5.SQL>  alter table Football_venue   rename column venue_name to Location;
+
+Table altered.
+
+SQL> alter table Football_venue    rename column capacity to volume;
+
+Table altered.
+
+SQL> select * from Football_venue;
+
+  VENUE_ID LOCATION                CITY_ID     VOLUME
+---------- -------------------- ---------- ----------
+     20002 Old Traffford             11002      75000
+     20003 Sanfrasisco               11004      60007
+     20004 Amsterdam                 11008      38048
+     20001 India                     11003      42115
+     20010 Norway                    12007      56700
+     20009 Russia                    12003      19800
+     20007 Nigeria                   11001      32009
+     20008 South Korea               11002      12345
+     20010 Norway                    12007      56700
+     20009 Russia                    12003      19800
+
+10 rows selected.
+
+SQL> select Location,volume from Football_venue;
+
+LOCATION                 VOLUME
+-------------------- ----------
+Old Traffford             75000
+Sanfrasisco               60007
+Amsterdam                 38048
+India                     42115
+Norway                    56700
+Russia                    19800
+Nigeria                   32009
+South Korea               12345
+Norway                    56700
+Russia                    19800
+
+10 rows selected.
+------------------------------------------------------------------------------------
+
+6.SQL>  alter table Football_venue   rename column Location to venue_name;
+
+Table altered.
+
+
+SQL>  update Football_venue set venue_name='Australia' where venue_name='India';
+
+1 row updated.
+
+SQL> delete from Football_venue    where venue_name='Australia';
+
+1 row deleted.
+
+SQL>  select * from Football_venue;
+
+  VENUE_ID VENUE_NAME              CITY_ID     VOLUME
+---------- -------------------- ---------- ----------
+     20002 Old Traffford             11002      75000
+     20003 Sanfrasisco               12004      60007
+     20004 Amsterdam                 11008      38048
+     20010 Norway                    12007      56700
+     20009 Russia                    12003      19800
+     20007 Nigeria                   11001      32009
+     20008 South Korea               11002      12345
+     20010 Norway                    12007      56700
+     20009 Russia                    12003      19800
+
+
+
+
